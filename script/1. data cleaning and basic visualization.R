@@ -32,21 +32,21 @@ starwars %>%
   mutate(species = as.factor(species),
          sex = as.factor(sex),
          sex = fct_recode(sex,
-           "Female" = "female",
-           "Male" = "male",
+                          "Female" = "female",
+                          "Male" = "male",
          )) %>%
   filter(sex != "none" & species == "Human" & hair_color != "none") %>%
   group_by(sex) %>%
   ggplot()+
-    geom_boxplot(aes(x = sex, y = height))+
-    geom_jitter(aes(x = sex, y = height, color = hair_color)) +
-      labs(
-        x = "Sex",
-        y = "Height",
-        color = "Hair Color"
-      ) +
+  geom_boxplot(aes(x = sex, y = height))+
+  geom_jitter(aes(x = sex, y = height, color = hair_color)) +
+  labs(
+    x = "Sex",
+    y = "Height",
+    color = "Hair Color"
+  ) +
   theme_bw()
-  
+
 
 
 # will be continued
